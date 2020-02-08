@@ -36,6 +36,6 @@ public abstract class CarRepositoryImpl implements CarRepository {
                 .where(
                         cb.equal(rc.get("id"), id)
                 );
-        return Optional.ofNullable(entityManager.createQuery(ccq).getSingleResult());
+        return Optional.of(entityManager.createQuery(ccq).getSingleResult());
     }
 }

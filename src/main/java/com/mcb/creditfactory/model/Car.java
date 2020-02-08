@@ -25,7 +25,7 @@ public class Car {
     @Column(name = "year_of_issue")
     private Short year;
 
-    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "car", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     protected List<RatingCar> carSet = new ArrayList<>();

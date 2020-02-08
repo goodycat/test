@@ -26,7 +26,7 @@ public class RatingCar {
     @Column(name = "assessed_date")
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_id",nullable = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

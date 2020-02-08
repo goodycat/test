@@ -1,7 +1,7 @@
 package com.mcb.creditfactory.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mcb.creditfactory.dto.CarDto;
+import com.mcb.creditfactory.dto.AirplaneDto;
 import com.mcb.creditfactory.dto.RatingDto;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,18 +27,17 @@ import java.util.Objects;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-public class CollateralObjectControllerTest {
+public class AirplaneControllerTest {
     @LocalServerPort
     private int port;
 
     @Autowired
     private TestRestTemplate restTemplate;
-
     @Test
     public void save() throws Exception {
         List<RatingDto> list = new ArrayList<>();
-        list.add(new RatingDto(0L, new BigDecimal(1100000), new Date()));
-        CarDto carDto = new CarDto(0L, "bmw", "f30", 194.0, (short) 2014, list);
+        list.add(new RatingDto(0L, new BigDecimal(240000000), new Date()));
+        AirplaneDto carDto = new AirplaneDto(0L, "f35", "test", "rus", (short) 2014,5000,2, list);
 
         ObjectMapper om = new ObjectMapper();
         String json = om.writerWithDefaultPrettyPrinter().writeValueAsString(carDto);
@@ -49,7 +48,7 @@ public class CollateralObjectControllerTest {
 
 
         ResponseEntity<String> response = restTemplate.postForEntity(
-                new URL("http://localhost:" + port + "/collateral/save").toString(), collateralHttpEntity, String.class);
+                new URL("http://localhost:" + port + "/airplane/save").toString(), collateralHttpEntity, String.class);
         Assert.assertEquals(1L, Integer.parseInt(Objects.requireNonNull(response.getBody())));
     }
 }
