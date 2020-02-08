@@ -59,10 +59,10 @@ public class CollateralAirplaneServiceImpl implements CollateralService {
 
         Airplane airplane = airplaneService.load(airplaneDto.getId()).orElseThrow(NullPointerException::new);
         airplane.setYear(airplane.getYear());
-//        boolean approved = airplaneService.approve(airplaneDto);
-//
-//        if (!approved)
-//            return null;
+        boolean approved = airplaneService.approve(airplaneDto);
+
+        if (!approved)
+            return null;
 
         List<RatingAirplane> list = new ArrayList<>();
         for (RatingDto rd : airplaneDto.getRatingDto()) {
