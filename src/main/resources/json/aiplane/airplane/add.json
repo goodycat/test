@@ -1,0 +1,23 @@
+{
+  "type" : "airplane",
+  "brand": "brand",
+  "model": "model",
+  "manufacturer": "manufacturer",
+  "year" : "2019",
+  "fuelCapacity" : "44",
+  "seats" : "4",
+  "rating": [
+    {
+
+      "value": "240000000",
+      "date": "2017-01-01"
+    },
+    {
+
+      "value": "240000000",
+      "date": "2017-10-01"
+    }
+  ]
+}
+
+
